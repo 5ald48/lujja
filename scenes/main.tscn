@@ -2,7 +2,55 @@
 
 [ext_resource type="PackedScene" uid="uid://calkmnxxovyj3" path="res://player.tscn" id="1_o5qli"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o5qli"]
+friction = 0.0
+rough = true
+bounce = 1.29
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o5qli"]
+b = Vector2(1029, 2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0wfyh"]
+a = Vector2(-225, -6)
+b = Vector2(762, -17)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sugp2"]
+a = Vector2(363, 510)
+b = Vector2(362, -74)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jyhfs"]
+a = Vector2(187, 301)
+b = Vector2(192, -330)
+
 [node name="Main" type="Node2D" unique_id=1278216689]
 
 [node name="CharacterBody2D" parent="." unique_id=512008037 instance=ExtResource("1_o5qli")]
 position = Vector2(328, 150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1055765873]
+physics_material_override = SubResource("PhysicsMaterial_o5qli")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1252447481]
+position = Vector2(83, 20)
+shape = SubResource("SegmentShape2D_o5qli")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=631305066]
+physics_material_override = SubResource("PhysicsMaterial_o5qli")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2052789235]
+position = Vector2(325, 632)
+shape = SubResource("SegmentShape2D_0wfyh")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1149073105]
+physics_material_override = SubResource("PhysicsMaterial_o5qli")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=115580366]
+position = Vector2(752, 119)
+shape = SubResource("SegmentShape2D_sugp2")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=865877939]
+physics_material_override = SubResource("PhysicsMaterial_o5qli")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1204471543]
+position = Vector2(-139, 341)
+shape = SubResource("SegmentShape2D_jyhfs")

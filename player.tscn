@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bj7rxnla2g1b5" path="res://scripts/player.gd" id="1_onrkg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(209, 96)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
+radius = 42.0
+height = 200.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=512008037]
 motion_mode = 1
@@ -16,4 +17,5 @@ scale = Vector2(1.6328125, 0.7578125)
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894510348]
-shape = SubResource("RectangleShape2D_bhunq")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tbgi4")
