@@ -52,5 +52,5 @@ shape = SubResource("SegmentShape2D_sugp2")
 physics_material_override = SubResource("PhysicsMaterial_o5qli")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1204471543]
-position = Vector2(-139, 341)
+position = Vector2(-111, 348)
 shape = SubResource("SegmentShape2D_jyhfs")
