@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://jhm6nuy8hgl7"]
+
+[node name="map" type="Node2D" unique_id=2145020422]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=692695941]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5" unique_id=921366364]
+position = Vector2(520.6052, 329.10675)
+scale = Vector2(1.8238363, 1)
+build_mode = 1
+polygon = PackedVector2Array(-137.40556, -253.10675, -198.81458, -40.10675, -159.88565, 194.89325, -112.732285, 295.89325, 2.4096375, 298.89325, 110.42369, 304.89325, 159.22194, 192.89325, 183.682, -5.107, 155.38388, -151.10675, 99.45781, -251.10675, -11.846039, -320.10675)
