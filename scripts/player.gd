@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var speed :float = 400
 var direction 
 var distance 
 var friction :float = 0.97
-var dead_zone :float = 100
+var dead_zone :float = 32
 
 
 func _physics_process(delta):
@@ -18,6 +19,7 @@ func _physics_process(delta):
 		direction = global_position.direction_to(get_global_mouse_position())
 		if distance >= dead_zone:
 			velocity = direction *  speed
+			animated_sprite_2d.play("swiming")
 	else:
 		velocity *=  friction 
 

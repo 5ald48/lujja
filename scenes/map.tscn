@@ -1,11 +1,35 @@
 [gd_scene format=3 uid="uid://jhm6nuy8hgl7"]
 
+[ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="1_4xfga"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0wfyh"]
+polygon = PackedVector2Array(486, 17, 787, 173, 822, 449, 647, 625, 318, 612, 173, 397, 211, 152)
+
 [node name="map" type="Node2D" unique_id=2145020422]
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=692695941]
+physics_material_override = SubResource("PhysicsMaterial_g2els")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5" unique_id=921366364]
 position = Vector2(520.6052, 329.10675)
 scale = Vector2(1.8238363, 1)
 build_mode = 1
-polygon = PackedVector2Array(-137.40556, -253.10675, -198.81458, -40.10675, -159.88565, 194.89325, -112.732285, 295.89325, 2.4096375, 298.89325, 110.42369, 304.89325, 159.22194, 192.89325, 183.682, -5.107, 155.38388, -151.10675, 99.45781, -251.10675, -11.846039, -320.10675)
+polygon = PackedVector2Array(-160.98224, -173.10675, -182.36572, 45.89325, -146.17827, 162.89325, -106.15274, 265.89325, 2.9579163, 278.89325, 66.56012, 288.89325, 162.51172, 116.89325, 154.2873, -8.1067505, 143.86969, -150.10675, 81.912384, -215.10675, -18.425568, -310.10675)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1743382522]
+offset_right = 2405.0
+offset_bottom = 1678.0
+color = Color(0.18381795, 0.27843308, 0.4935674, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2089819374]
+visible = false
+color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1026640924]
+occluder = SubResource("OccluderPolygon2D_0wfyh")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=425671359]
+position = Vector2(582, 417)
+texture = ExtResource("1_4xfga")
