@@ -1,22 +1,14 @@
 [gd_scene format=3 uid="uid://jhm6nuy8hgl7"]
 
 [ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="1_4xfga"]
+[ext_resource type="Texture2D" uid="uid://bjemrj6t5xr41" path="res://assets/my art/lujja-328x17-219x190.png" id="1_paxxb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0wfyh"]
-polygon = PackedVector2Array(486, 17, 787, 173, 822, 449, 647, 625, 318, 612, 173, 397, 211, 152)
+polygon = PackedVector2Array(509, 107, 612, 110, 674, 192, 809.8871, 264.73108, 897, 368, 902, 448, 869, 512, 879, 582, 807, 632, 784, 734, 630, 742, 526, 757, 431, 752, 336, 777, 259, 721, 238, 652, 253, 566, 210, 526, 195, 421, 259, 384, 271, 299, 262, 229, 198, 155, 304, 139, 334, 90)
 
 [node name="map" type="Node2D" unique_id=2145020422]
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=692695941]
-physics_material_override = SubResource("PhysicsMaterial_g2els")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5" unique_id=921366364]
-position = Vector2(520.6052, 329.10675)
-scale = Vector2(1.8238363, 1)
-build_mode = 1
-polygon = PackedVector2Array(-160.98224, -173.10675, -182.36572, 45.89325, -146.17827, 162.89325, -106.15274, 265.89325, 2.9579163, 278.89325, 66.56012, 288.89325, 162.51172, 116.89325, 154.2873, -8.1067505, 143.86969, -150.10675, 81.912384, -215.10675, -18.425568, -310.10675)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1743382522]
 offset_right = 2405.0
@@ -24,10 +16,24 @@ offset_bottom = 1678.0
 color = Color(0.18381795, 0.27843308, 0.4935674, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2089819374]
-visible = false
-color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=692695941]
+physics_material_override = SubResource("PhysicsMaterial_g2els")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5" unique_id=921366364]
+position = Vector2(657.0349, 556.8919)
+scale = Vector2(1.8238363, 1)
+build_mode = 1
+polygon = PackedVector2Array(-158.47635, -246.89186, -138.18942, -184.89186, -128.32013, -80.89188, -135.44797, -31.891872, -163.95929, 10.108126, -157.37976, 66.10812, -140.93091, 153.10814, -145.31726, 243.10814, -117.35424, 328.10812, -83.90824, 352.10812, -38.399788, 336.10812, 6.012107, 344.10812, 148.02048, 318.10812, 163.37274, 221.10814, 201.75336, 164.10814, 194.07727, 99.10812, 213.81586, 33.108124, 206.13971, -44.891876, 158.98639, -150.89186, 84.966576, -224.89186, 54.262047, -301.89188, -10.436746, -310.89188, -72.94236, -323.89188)
+
+[node name="Lujja328x17219x190" type="Sprite2D" parent="StaticBody2D5" unique_id=1076295120]
+position = Vector2(715, 623.99994)
+scale = Vector2(6.49, 6.49)
+texture = ExtResource("1_paxxb")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1026640924]
+position = Vector2(148, 142)
 occluder = SubResource("OccluderPolygon2D_0wfyh")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=425671359]
