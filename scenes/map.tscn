@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="1_4xfga"]
 [ext_resource type="Texture2D" uid="uid://bjemrj6t5xr41" path="res://assets/my art/lujja-328x17-219x190.png" id="1_paxxb"]
+[ext_resource type="PackedScene" uid="uid://bl2kb5kx25oss" path="res://scenes/breathing_area_component.tscn" id="3_gldc4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 
@@ -16,7 +17,7 @@ offset_bottom = 1678.0
 color = Color(0.18381795, 0.27843308, 0.4935674, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2089819374]
-color = Color(0, 0, 0, 1)
+color = Color(0.039215688, 0.078431375, 0.13725491, 1)
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=692695941]
 physics_material_override = SubResource("PhysicsMaterial_g2els")
@@ -39,3 +40,7 @@ occluder = SubResource("OccluderPolygon2D_0wfyh")
 [node name="Icon" type="Sprite2D" parent="." unique_id=425671359]
 position = Vector2(582, 417)
 texture = ExtResource("1_4xfga")
+
+[node name="Area2D" parent="." unique_id=1927512745 instance=ExtResource("3_gldc4")]
+position = Vector2(699, 501)
+scale = Vector2(3.19, 3.19)

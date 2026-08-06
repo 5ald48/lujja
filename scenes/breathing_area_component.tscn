@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bl2kb5kx25oss"]
+
+[ext_resource type="Script" uid="uid://belginccf1xd1" path="res://scripts/breathing_area_component.gd" id="1_1dvdl"]
+[ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="2_eowys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr0ht"]
+size = Vector2(20, 10)
+
+[node name="air" type="Area2D" unique_id=1927512745]
+script = ExtResource("1_1dvdl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720596147]
+shape = SubResource("RectangleShape2D_qr0ht")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=546310274]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.15625, 0.08)
+texture = ExtResource("2_eowys")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
