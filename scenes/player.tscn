@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj7rxnla2g1b5" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b0ujpft4hmbp2" path="res://assets/my art/animation 1.png" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://bca6u4s8hnow2" path="res://assets/not my art/512x512 textures (1).png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bca6u4s8hnow2" path="res://assets/not my art/512x512 textures (1).png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bxa7dtn5bcpt0" path="res://assets/not my art/512x512 textures  (1).png" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
@@ -80,6 +80,25 @@ animations = [{
 radius = 6.0000005
 height = 34.0
 
+[sub_resource type="GDScript" id="GDScript_bhunq"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_timeout() -> void:
+	if GlobalData.current_air > 0:
+		GlobalData.current_air -=0.1
+"
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=512008037]
 motion_mode = 1
 wall_min_slide_angle = 0.34906584
@@ -91,7 +110,6 @@ sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"swiming"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894510348]
-visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tbgi4")
 
@@ -101,15 +119,22 @@ process_callback = 0
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1771307808]
+[node name="surround_light" type="PointLight2D" parent="." unique_id=1033530215]
 shadow_enabled = true
-texture = ExtResource("3_qhqgy")
+texture = ExtResource("3_dqkch")
 texture_scale = 0.5
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=314917040]
+[node name="flash_light" type="PointLight2D" parent="." unique_id=314917040]
 rotation = 1.5707964
 scale = Vector2(0.74, 2.58)
 shadow_enabled = true
 texture = ExtResource("4_dqkch")
 offset = Vector2(0, -56.955)
 texture_scale = 0.2
+
+[node name="air_decrese" type="Timer" parent="." unique_id=1546072228]
+wait_time = 0.1
+autostart = true
+script = SubResource("GDScript_bhunq")
+
+[connection signal="timeout" from="air_decrese" to="air_decrese" method="_on_timeout"]
