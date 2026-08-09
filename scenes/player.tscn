@@ -111,7 +111,7 @@ point_count = 2
 offsets = PackedFloat32Array(0.675, 1)
 colors = PackedColorArray(0.42121613, 0.6026584, 0.9948183, 1, 1, 1, 1, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=512008037]
+[node name="player" type="CharacterBody2D" unique_id=512008037]
 motion_mode = 1
 wall_min_slide_angle = 0.34906584
 script = ExtResource("1_onrkg")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-
+@onready var player: CharacterBody2D = $"."
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var surround_light: PointLight2D = $surround_light
 @onready var swim_paricle: CPUParticles2D = $swim_paricle
@@ -37,3 +37,5 @@ func _physics_process(_delta):
 
 func _process(_delta: float) -> void:
 	surround_light.global_rotation = 0 # so the light dont rotate with the player
+	
+	GlobalData.player_depth = player.position.y # player depth
