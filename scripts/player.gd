@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var surround_light: PointLight2D = $surround_light
+@onready var swim_paricle: CPUParticles2D = $swim_paricle
 
 
 
@@ -21,9 +22,10 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("swiming"):
 		direction = global_position.direction_to(get_global_mouse_position())
 		if distance >= dead_zone:
-			velocity = direction *  speed
-			animated_sprite_2d.play("swiming")
-			GlobalData.current_air -= 1
+			velocity = direction *  speed # moving
+			animated_sprite_2d.play("swiming") # animation play
+			GlobalData.current_air -= 1 # air decraseing
+			swim_paricle.restart() # particle turning on
 	else:
 		velocity *=  friction 
 
@@ -34,4 +36,4 @@ func _physics_process(_delta):
 
 
 func _process(_delta: float) -> void:
-	surround_light.global_rotation = 0
+	surround_light.global_rotation = 0 # so the light dont rotate with the player

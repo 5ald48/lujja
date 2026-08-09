@@ -90,14 +90,22 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_timeout() -> void:
 	if GlobalData.current_air > 0:
-		GlobalData.current_air -=0.1
+		GlobalData.current_air -=1
 "
+
+[sub_resource type="Curve" id="Curve_dqkch"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_smehm"]
+offsets = PackedFloat32Array(0.675, 1)
+colors = PackedColorArray(0.42121613, 0.6026584, 0.9948183, 1, 1, 1, 1, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=512008037]
 motion_mode = 1
@@ -114,27 +122,46 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tbgi4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=638494074]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.75, 0.75)
 process_callback = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 2.5
 editor_draw_limits = true
 
 [node name="surround_light" type="PointLight2D" parent="." unique_id=1033530215]
+energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_dqkch")
 texture_scale = 0.5
 
 [node name="flash_light" type="PointLight2D" parent="." unique_id=314917040]
+position = Vector2(2.622889, 1.5836152e-07)
 rotation = 1.5707964
-scale = Vector2(0.74, 2.58)
+scale = Vector2(0.74, 1.9504802)
 shadow_enabled = true
 texture = ExtResource("4_dqkch")
 offset = Vector2(0, -56.955)
 texture_scale = 0.2
 
 [node name="air_decrese" type="Timer" parent="." unique_id=1546072228]
-wait_time = 0.1
 autostart = true
 script = SubResource("GDScript_bhunq")
+
+[node name="swim_paricle" type="CPUParticles2D" parent="." unique_id=652067876]
+position = Vector2(-3, 0)
+emitting = false
+amount = 200
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 3.4
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_dqkch")
+color_ramp = SubResource("Gradient_smehm")
 
 [connection signal="timeout" from="air_decrese" to="air_decrese" method="_on_timeout"]
