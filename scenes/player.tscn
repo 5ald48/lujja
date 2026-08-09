@@ -80,6 +80,10 @@ animations = [{
 radius = 6.0000005
 height = 34.0
 
+[sub_resource type="Curve" id="Curve_qlg0r"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="GDScript" id="GDScript_bhunq"]
 script/source = "extends Timer
 
@@ -127,6 +131,21 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 editor_draw_limits = true
+
+[node name="scren particle" type="CPUParticles2D" parent="Camera2D" unique_id=196294249]
+z_index = -1
+amount = 300
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(250, 150)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_qlg0r")
+color = Color(0.5828465, 0.7506934, 0.99370116, 1)
 
 [node name="surround_light" type="PointLight2D" parent="." unique_id=1033530215]
 energy = 0.5
