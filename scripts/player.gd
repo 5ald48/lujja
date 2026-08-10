@@ -21,21 +21,27 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("swiming"):
 		direction = global_position.direction_to(get_global_mouse_position())
+		
 		if distance >= dead_zone:
 			velocity = direction *  speed # moving
 			animated_sprite_2d.play("swiming") # animation play
 			GlobalData.current_air -= 1 # air decraseing
 			swim_paricle.restart() # particle turning on
 	else:
-		velocity *=  friction 
+		velocity *=  friction # the slowing down after swiming
 
-	if distance >= dead_zone:
-		look_at(get_global_mouse_position())
+	if distance >= dead_zone: # if the mouse is close to the player it stop folowing the mouse
+		look_at(get_global_mouse_position()) # so the player look at the mouse
+
+
 
 	move_and_slide()
 
 
 func _process(_delta: float) -> void:
+	
 	surround_light.global_rotation = 0 # so the light dont rotate with the player
 	
 	GlobalData.player_depth = player.position.y # player depth
+	
+	GlobalData.player_current_location = global_position # player current location

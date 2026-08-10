@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://bl2kb5kx25oss" path="res://scenes/breathing_area_component.tscn" id="3_gldc4"]
 [ext_resource type="Texture2D" uid="uid://bu1sjffduev36" path="res://assets/my art/lujja-64x192-16x16.png" id="4_0cso3"]
+[ext_resource type="PackedScene" uid="uid://c2lrijy4t0j2r" path="res://scenes/enemy.tscn" id="4_2klcf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gldc4"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -41,3 +42,6 @@ tile_set = SubResource("TileSet_nakos")
 
 [node name="air" parent="." unique_id=1927512745 instance=ExtResource("3_gldc4")]
 position = Vector2(737, 578)
+
+[node name="enemy" parent="." unique_id=1754354463 instance=ExtResource("4_2klcf")]
+position = Vector2(746, 534)

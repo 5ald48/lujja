@@ -76,9 +76,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
-radius = 6.0000005
-height = 34.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 
 [sub_resource type="Curve" id="Curve_qlg0r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -123,7 +121,7 @@ animation = &"swiming"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894510348]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_tbgi4")
+shape = SubResource("CircleShape2D_md0e3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=638494074]
 zoom = Vector2(0.75, 0.75)

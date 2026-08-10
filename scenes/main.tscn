@@ -6,9 +6,9 @@
 
 [node name="Main" type="Node2D" unique_id=1278216689]
 
-[node name="map" parent="." unique_id=2145020422 instance=ExtResource("2_0wfyh")]
-
 [node name="player" parent="." unique_id=512008037 instance=ExtResource("1_o5qli")]
 position = Vector2(696, 460)
+
+[node name="map" parent="." unique_id=2145020422 instance=ExtResource("2_0wfyh")]
 
 [node name="ui" parent="." unique_id=1891214706 instance=ExtResource("3_sugp2")]
