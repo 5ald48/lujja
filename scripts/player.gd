@@ -15,6 +15,7 @@ var friction :float = 0.97
 var dead_zone :float = 25
 
 
+
 func _physics_process(_delta):
 	
 	distance = global_position.distance_to(get_global_mouse_position())
@@ -44,4 +45,4 @@ func _process(_delta: float) -> void:
 	
 	GlobalData.player_depth = player.position.y # player depth
 	
-	GlobalData.player_current_location = global_position # player current location
+	GlobalData.player_current_location = player.global_position # player current location

@@ -27,6 +27,26 @@ func _process(_delta: float) -> void:
 	dipth.text = str(int(GlobalData.player_depth / 30)) + \"m\"
 "
 
+[sub_resource type="GDScript" id="GDScript_x4jx1"]
+script/source = "extends ColorRect
+
+@onready var running_out_of_air: ColorRect = $\".\"
+var low_air_threshold : float = 10.0
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if  GlobalData.current_air < 10:
+		running_out_of_air.color.a = 1 - (0.2+(GlobalData.current_air / low_air_threshold))
+	else:
+		running_out_of_air.color.a = 0
+"
+
 [node name="ui" type="CanvasLayer" unique_id=1891214706]
 
 [node name="air bar" type="ProgressBar" parent="." unique_id=816158643]
@@ -74,3 +94,10 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 script = SubResource("GDScript_bhunq")
+
+[node name="running_out_of_air" type="ColorRect" parent="." unique_id=1895021302]
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.7411765)
+script = SubResource("GDScript_x4jx1")
