@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var health : float = 10
 @export var attack_damage : float = 10
 @export var attack_speed : float = 10
-@export var stop_distance : float = 0
+@export var stop_distance : float = 50
 
 
 
