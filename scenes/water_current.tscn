@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cc4culjju3iy1"]
+
+[ext_resource type="Script" uid="uid://blbddhgn7xprm" path="res://scripts/water_current.gd" id="1_e8cr4"]
+[ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="2_ouwrk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+
+[sub_resource type="Gradient" id="Gradient_ouwrk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_be0no"]
+gradient = SubResource("Gradient_ouwrk")
+width = 20
+
+[sub_resource type="Curve" id="Curve_4rtrl"]
+_data = [Vector2(0.0044247806, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="water_current" type="Area2D" unique_id=1655919597]
+z_index = -1
+script = ExtResource("1_e8cr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1683565037]
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1829831167]
+visible = false
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.15624999, 0.15624999)
+texture = ExtResource("2_ouwrk")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=80026207]
+amount = 100
+texture = SubResource("GradientTexture1D_be0no")
+lifetime = 0.09999999999999999
+speed_scale = 0.5
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(9, 9)
+gravity = Vector2(1000, 0)
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_4rtrl")
+color = Color(0.6222375, 0.7244454, 0.9697196, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

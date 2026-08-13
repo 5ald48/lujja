@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ujpft4hmbp2" path="res://assets/my art/animation 1.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://bca6u4s8hnow2" path="res://assets/not my art/512x512 textures (1).png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bxa7dtn5bcpt0" path="res://assets/not my art/512x512 textures  (1).png" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://ctyuhj82gd7vv" path="res://scripts/death.gd" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -180,5 +181,8 @@ initial_velocity_max = 100.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_dqkch")
 color_ramp = SubResource("Gradient_smehm")
+
+[node name="death" type="Node2D" parent="." unique_id=435980705]
+script = ExtResource("5_qlg0r")
 
 [connection signal="timeout" from="air_decrese" to="air_decrese" method="_on_timeout"]
