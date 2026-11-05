@@ -1,20 +1,35 @@
 [gd_scene format=3 uid="uid://bl2kb5kx25oss"]
 
 [ext_resource type="Script" uid="uid://belginccf1xd1" path="res://scripts/breathing_area_component.gd" id="1_1dvdl"]
-[ext_resource type="Texture2D" uid="uid://ccttemxhcw57j" path="res://icon.svg" id="2_eowys"]
+[ext_resource type="Texture2D" uid="uid://bl2t8g8uybh22" path="res://assets/my art/lujja-16x208-16x16.png" id="2_eowys"]
+[ext_resource type="Texture2D" uid="uid://b1lorfkejagii" path="res://assets/my art/lujja-16x240-10x10.png" id="3_ar2iu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr0ht"]
-size = Vector2(20, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpb2v"]
+radius = 8.0
+
+[sub_resource type="Curve" id="Curve_bhunq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="air" type="Area2D" unique_id=1927512745]
 script = ExtResource("1_1dvdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720596147]
-shape = SubResource("RectangleShape2D_qr0ht")
+shape = SubResource("CircleShape2D_tpb2v")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=546310274]
 position = Vector2(4.7683716e-07, 0)
-scale = Vector2(0.15625, 0.08)
 texture = ExtResource("2_eowys")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=325545701]
+amount = 20
+texture = ExtResource("3_ar2iu")
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector2(0, -75)
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_bhunq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
